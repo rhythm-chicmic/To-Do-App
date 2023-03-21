@@ -29,13 +29,13 @@
       <label for="validationServer03">Phone Number</label>
       <input type="text" class="form-control" formControlName="phoneNumber" placeholder="phone" >
       <span class="validations" *ngIf="controls.phoneNumber.invalid && controls.phoneNumber.touched">
-        Fields are required
+        Fields are required : 
       </span>
       <span class="validations" *ngIf="controls['phoneNumber'].errors?.['pattern']">
-        Characters must be numeric
+        :   Characters must be numeric : 
       </span>
       <span class="validations" *ngIf="controls['phoneNumber'].errors?.['maxlength']">
-        length too long
+        : length too long
       </span>
     </div>
     <div class="col-md-3 mb-3">
