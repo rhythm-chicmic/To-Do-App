@@ -1,14 +1,6 @@
 {
   "Tasks": [
     {
-      "item": "40 push ups",
-      "type": "Exercise",
-      "description": "10 am to 10:10 am\n",
-      "image": "C:\\fakepath\\photo-1566351566999-d975d35c3325.avif",
-      "status": "Active",
-      "id": 5
-    },
-    {
       "item": "Tomatos",
       "type": "Grocery",
       "description": "10 kg Tomatos",

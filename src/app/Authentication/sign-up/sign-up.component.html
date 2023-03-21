@@ -4,7 +4,10 @@
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="validationServer01">Name</label>
-        <input type="text" class="form-control" formControlName="name" placeholder="Enter Name" >
+        <input type="text" class="form-control" formControlName="name" placeholder="Enter Name">
+        <span class="validations" *ngIf="controls['name'].errors?.['required']">
+            Fill up The Fields
+        </span>
       </div>  
     </div>
     <div class="form-row">

@@ -12,4 +12,7 @@ export class AuthserviceService {
     console.log(`${api+links.auth.signup}`)
     return this.http.post(`${api+links.auth.signup}`,data)
   }
+  PostLogin(data:any){
+    return this.http.post(`${api+links.auth.login}`,data)
+  }
 }

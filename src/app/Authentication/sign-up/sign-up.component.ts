@@ -17,6 +17,11 @@ export class SignUpComponent {
   })
   constructor(private service: AuthserviceService) { }
 
+  get controls(){
+    return this.SignupForm.controls;
+  }
+
+
   OnSubmit() {
     console.log(this.SignupForm.value)
     this.service.PostSignUp(this.SignupForm.value).subscribe((res) => {

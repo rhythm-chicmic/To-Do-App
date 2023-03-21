@@ -4,6 +4,7 @@ export const api = "http://192.180.0.213:2000"
 
 export const  links = {
     auth:{
-        signup: '/user/signup'
+        signup: '/user/signup',
+        login: '/user/login'
     }
 }
