@@ -5,8 +5,11 @@
       <div class="col-md-4 mb-3">
         <label for="validationServer01">Name</label>
         <input type="text" class="form-control" formControlName="name" placeholder="Enter Name">
-        <span class="validations" *ngIf="controls['name'].errors?.['required']">
+        <span class="validations" *ngIf="controls.name.invalid && controls.name.touched">
             Fill up The Fields
+        </span>
+        <span class="validations" *ngIf="controls['name'].errors?.['minlength']">
+              Name too Short
         </span>
       </div>  
     </div>
@@ -14,13 +17,23 @@
       <div class="col-md-6 mb-3">
         <label for="validationServer03">Email</label>
         <input type="email" class="form-control" formControlName="email" placeholder="email" >
-        
+        <span class="validations" *ngIf="!controls.email.valid && controls.email.touched">
+           Field is Required
+        </span>
+        <span class="validations" *ngIf="controls['email'].errors?.['pattern'] ">
+          Not valid Email
+    </span>
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="validationServer03">Phone Number</label>
         <input type="text" class="form-control" formControlName="phoneNumber" placeholder="phone" >
-        
+        <span class="validations" *ngIf="controls.phoneNumber.invalid && controls.phoneNumber.touched">
+          Fields are required
+        </span>
+        <span class="validations" *ngIf="controls['phoneNumber'].errors?.['maxlength']">
+          length too long
+        </span>
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationServer04">Password</label>
