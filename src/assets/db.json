@@ -1,53 +1,12 @@
 {
   "Tasks": [
     {
-      "id": 1,
-      "item": "duncan",
-      "type": "Grocery",
-      "description": "australia",
-      "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      "status": "Active"
-    },
-    {
-      "id": 2,
-      "item": "duncan",
-      "type": "Grocery",
-      "description": "australia",
-      "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      "status": "Active"
-    },
-    {
-      "id": 3,
-      "item": "duncan",
-      "type": "Grocery",
-      "description": "australia",
-      "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      "status": "Active"
-    },
-    {
-      "item": "duncan",
-      "type": "Grocery",
-      "description": "australia",
-      "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      "status": "Active",
-      "id": 7
-
-    },
-    {
-      "item": "30 Push Ups",
-      "type": "Exercise",
-      "description": "10 am to 10:30 am",
-      "image": "C:\\fakepath\\trash.svg",
-      "id": 4,
-      "status": "Active"
-    },
-    {
       "item": "40 push ups",
       "type": "Exercise",
-      "description": "10 am to 10:40 pm",
+      "description": "10 am to 10:10 am\n",
       "image": "C:\\fakepath\\photo-1566351566999-d975d35c3325.avif",
-      "id": 5,
-      "status": "Active"
+      "status": "Active",
+      "id": 5
     },
     {
       "item": "Tomatos",
@@ -56,6 +15,30 @@
       "image": "C:\\fakepath\\trash.svg",
       "status": "Active",
       "id": 6
+    },
+    {
+      "item": "Excersise",
+      "type": "Exercise",
+      "description": "do excersise",
+      "image": "C:\\fakepath\\photo-1566351566999-d975d35c3325.avif",
+      "status": "Active",
+      "id": 8
+    },
+    {
+      "item": "10 push ups",
+      "type": "Exercise",
+      "description": "10:20 am to 10:30 am",
+      "image": "C:\\fakepath\\Screenshot from 2023-03-20 11-42-38.png",
+      "status": "Active",
+      "id": 9
+    },
+    {
+      "item": "Study Histroy",
+      "type": "Work",
+      "description": "Complete Chapters 1 and 2  ",
+      "image": "C:\\fakepath\\trash.svg",
+      "status": "Inactive",
+      "id": 10
     }
   ]
 }

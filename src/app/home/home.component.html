@@ -1,0 +1,109 @@
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+        <tr>
+            <th>Image</th>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of userList">
+            <td>
+                <div class="d-flex align-items-center">
+                    <img [src]="task.image" alt="" style="width: 45px; height: 45px" class="rounded-circle" />
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">John Doe</p>
+                        <p class="text-muted mb-0">john.doe@gmail.com</p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <p class="fw-normal mb-1">{{task.item}}</p>
+                <p class="text-muted mb-0">{{task.type}}</p>
+            </td>
+            <td>
+                {{task.description}}
+            </td>
+            <td>{{task.status}}</td>
+
+            <td>
+                <div class="contianer md-4">
+                <button type="button" class="btn btn-light btn-rounded" (click)="openModal(AddTaskModal,task)">
+                    Edit
+                </button>
+                <button class="btn btn-warning" (click)="deleteModal(deleteTask,task)">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button class="btn btn-success" (click)="ViewTaskDetails(task)"> 
+                  <i class="fa fa-eye"></i>
+            </button>
+        </div>
+            
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #AddTaskModal let-modal> 
+   <div class="modal-header">
+        <h5 class="modal-title" id="editProfileLabel">Edit Profile</h5>
+        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+        </button>
+       </div>
+      
+<div class ="container md-4">
+    <h3>Add Task </h3>
+<form class=""  [formGroup]="AddTaskForm" (ngSubmit)="OnSubmit()">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationServer01">Task</label>
+        <input type="text" class="form-control " formControlName="item" placeholder="Enter Task Name"  required>
+       
+      </div>
+      <div class="col-md-4 mb-3">
+        <label >Work Type:-  </label>
+        <select name="" id="" formControlName="type" >
+            <option disabled > Select the Work type</option>
+            <option selected [value]="type" *ngFor="let type of task_type">{{type}}</option>
+        </select>
+       
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  formControlName="description"></textarea>
+      </div>
+      
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="customFile">Add Image</label>
+        <input type="file" class="form-control" id="customFile"  />
+    </div>
+    <hr>
+    <div class="col-md-4 mb-3">
+        <label >Status:-  </label>
+        <select name="" id="" formControlName="status" >
+            <option   disabled> Select Status</option>
+            <option selected [value]="status" *ngFor="let status of status">{{status}}</option>
+        </select>
+       
+      </div>
+    <hr>
+    <button class="btn btn-primary" (click)="modal.dismiss()"  type="submit">Submit form</button>
+  </form>
+</div>
+
+
+</ng-template> 
+
+<ng-template #deleteTask let-DeleteModal>
+
+    <div class="alert">
+        <strong>Do you want to delete the Task? </strong> 
+    
+            <ng-container class="modal"  *ngFor="let option of Options">
+            <button [value]="option" class="btn btn-dark" (click)="OnClick(option)">{{option}}</button>
+            </ng-container>
+    </div>
+</ng-template>

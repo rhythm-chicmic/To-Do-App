@@ -1,0 +1,43 @@
+
+<div class ="container md-4">
+    <h3>Add Task </h3>
+<form class=""  [formGroup]="AddTaskForm" (ngSubmit)="OnSubmit()">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationServer01">Task</label>
+        <input type="text" class="form-control " formControlName="item" placeholder="Enter Task Name"  required>
+       <span *ngIf="AddTaskForm.controls['item'].touched">
+          enter The
+       </span>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label >Work Type:-  </label>
+        <select name="" id="" formControlName="type" >
+            <option disabled selected> Select the Work type</option>
+            <option  *ngFor="let type of task_type">{{type}}</option>
+        </select>
+       
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  formControlName="description"></textarea>
+      </div>
+      
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="customFile">Add Image</label>
+        <input type="file" class="form-control" id="customFile"  formControlName="image" />
+    </div>
+    <hr>
+    <div class="col-md-4 mb-3">
+        <label >Status:-  </label>
+        <select name="" id="" formControlName="status" >
+            <option  selected disabled> Select Status</option>
+            <option  *ngFor="let status of status">{{status}}</option>
+        </select>
+       
+      </div>
+    <hr>
+    <button class="btn btn-primary" [disabled]="AddTaskForm.invalid" type="submit">Submit form</button>
+  </form>
+</div>
