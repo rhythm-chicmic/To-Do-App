@@ -48,7 +48,7 @@
 <ng-template #AddTaskModal let-modal> 
    <div class="modal-header">
         <h5 class="modal-title" id="editProfileLabel">Edit Profile</h5>
-        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+        <button class="btn bnt-light" type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
          <span aria-hidden="true">&times;</span>
         </button>
        </div>
@@ -60,7 +60,7 @@
       <div class="col-md-4 mb-3">
         <label for="validationServer01">Task</label>
         <input type="text" class="form-control " formControlName="item" placeholder="Enter Task Name"  required>
-       
+        
       </div>
       <div class="col-md-4 mb-3">
         <label >Work Type:-  </label>

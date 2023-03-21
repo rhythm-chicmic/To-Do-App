@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AddListComponent } from './add-list/add-list.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { SignUpComponent } from './Authentication/sign-up/sign-up.component';
 
 const routes: Routes = [
   {path:'', redirectTo:"home",pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'add-list',component:AddListComponent},
+  {path:'signup',component:SignUpComponent},
   { path: '**', component: PagenotfoundComponent }
 ];
 
