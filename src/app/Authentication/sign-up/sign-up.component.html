@@ -57,6 +57,9 @@
       </label>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
+  <button class="btn btn-primary" [disabled]="SignupForm.invalid" type="submit">Submit form</button>
+  <span class="validations" *ngIf="submitted===true">
+    * All Fields are Required 
+  </span>
 </form>
 </div>

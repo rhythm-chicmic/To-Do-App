@@ -7,6 +7,7 @@ import { AuthserviceService } from '../authservice.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
+  submitted:boolean =false;
   SignupForm = new FormGroup({
     name: new FormControl('', [Validators.required,Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]),
@@ -24,10 +25,17 @@ export class SignUpComponent {
 
   OnSubmit() {
     console.log(this.SignupForm.value)
+    if(this.SignupForm.valid){
+    
     this.service.PostSignUp(this.SignupForm.value).subscribe((res) => {
       console.log(res)
     });
   }
+  else {
+    this.submitted=true;
+  }
+  
+}
 
 
 }
