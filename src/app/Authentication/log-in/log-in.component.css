@@ -16,3 +16,7 @@ height: 100%;
 .validations{
     color: red;
 }
+.valid_blue{
+    color: blue;
+    cursor: pointer;
+}

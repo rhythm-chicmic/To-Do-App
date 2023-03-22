@@ -24,7 +24,7 @@ import { HttpconfigInterceptor } from './Interceptor/httpconfig.interceptor';
     HomeComponent,
     AddListComponent,
     PagenotfoundComponent,
-    ShowTaskDetailsComponent
+    ShowTaskDetailsComponent,
   ],
   imports: [
     BrowserModule,

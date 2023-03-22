@@ -46,7 +46,9 @@ export class SignUpComponent {
   get controls(){
     return this.SignupForm.controls;
   }
-
+  OnClick(location:string){
+    this.route.navigate([location]);
+  }
 
   OnSubmit() {
     console.log(this.SignupForm.value)

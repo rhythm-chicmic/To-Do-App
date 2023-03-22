@@ -10,3 +10,7 @@
 .validations{
     color: red;
 }
+.valid_blue{
+    color: blue;
+    cursor: pointer;
+}

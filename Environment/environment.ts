@@ -6,5 +6,9 @@ export const  links = {
     auth:{
         signup: '/user/signup',
         login: '/user/login'
+    },
+    AddTask:{
+        get: '/user/show',
+        patch: '/user/update'
     }
 }

@@ -18,11 +18,14 @@ constructor(private service :AuthserviceService, private route:Router){}
   get controls(){
     return this.LoginForm.controls;
   }
-
+  OnClick(location:string){
+    this.route.navigate([location]);
+  }
   OnSubmit(){
     console.log(this.LoginForm.value)
     if(this.LoginForm.valid){
     this.service.PostLogin(this.LoginForm.value).subscribe((res:any)=>{
+      console.log(res);
       localStorage.setItem('token',res.token)
     });
     this.clearForm();
