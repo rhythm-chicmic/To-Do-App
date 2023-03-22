@@ -1,0 +1,1 @@
+1. use camel case for naming variable and functions

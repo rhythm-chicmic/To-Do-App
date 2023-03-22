@@ -1,13 +1,15 @@
 export const task_type = [
-    "Grocery",
-    "Work",
-    "Study",
-    "Exercise"
+    "grocery",
+    "work",
+    "study",
+    "workout",
+    "hobby",
+    "other"
 ]
 export const status= [
-    "Active",
-    "Inactive",
-    "OnHold"
+    "active",
+    "inactive",
+    "onhold"    
 ]
 export let id:number;
 export function set_id(Id:number){

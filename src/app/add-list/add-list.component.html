@@ -5,22 +5,22 @@
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="validationServer01">Task</label>
-        <input type="text" class="form-control " formControlName="item" placeholder="Enter Task Name"  required>
-       <span class="validations" *ngIf="controls.item.touched
-       && !controls.item.valid || controls['item'].errors?.['pattern']">
+        <input type="text" class="form-control " formControlName="title" placeholder="Enter Task Name"  required>
+       <span class="validations" *ngIf="controls.title.touched
+       && !controls.title.valid || controls['title'].errors?.['pattern']">
           Enter Valid Task Name
        </span>
-       <span class="validations" *ngIf="controls['item'].errors?.['minlength']">
+       <span class="validations" *ngIf="controls['title'].errors?.['minlength']">
           Too Short
        </span>
       </div>
       <div class="col-md-4 mb-3">
         <label >Work Type:-  </label>
-        <select name="" id="" formControlName="type" >
+        <select name="" id="" formControlName="category" >
             <option value="" disabled selected> Select the Work type</option>
             <option  *ngFor="let type of task_type">{{type}}</option>
         </select>
-       <span class="validations" *ngIf="controls.type.touched && controls.type.invalid && controls['type'].errors?.['required']">
+       <span class="validations" *ngIf="controls.category.touched && controls.category.invalid && controls['category'].errors?.['required']">
         Choose Valid Options
         </span>
       </div>
@@ -58,6 +58,23 @@
           Enter Status
        </span>
       </div>
+      <div class="col-md-4 mb-3">
+        <label >Start Date </label>
+        <input
+            id="requestdate" 
+            type="date" 
+            class="form-control" 
+            formControlName="startTime" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label >End Date </label>
+        <input
+            id="requestdate" 
+            type="date" 
+            class="form-control" 
+            formControlName="endTime" />
+      </div>
+
     <hr>
     <div  class="col-md-4 mb-3">    
     <button class="btn btn-primary"  [disabled]="AddTaskForm.invalid && AddTaskForm || AddTaskForm.pristine" type="submit">Submit form</button>

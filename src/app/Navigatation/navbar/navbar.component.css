@@ -4,3 +4,10 @@
 .btn{
     float: right;
 }
+li{
+    list-style-type: none;
+    cursor: pointer;
+}
+nav-user{
+    margin-right: 100px;
+}

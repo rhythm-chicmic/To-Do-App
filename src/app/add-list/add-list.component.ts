@@ -14,14 +14,18 @@ export class AddListComponent {
   status= status
   constructor(private service:CRUDserviceService){}
   AddTaskForm= new FormGroup({
-    item:new FormControl('',[Validators.required,Validators.minLength(4),
+    title:new FormControl('',[Validators.required,Validators.minLength(4),
     Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$')]),
-    type: new FormControl('', Validators.required),
+    category: new FormControl('', Validators.required),
     description: new FormControl('',[Validators.required, Validators.minLength(10),Validators.maxLength(70)]),
     image: new FormControl('', Validators.required),
-    status: new FormControl('',Validators.required) 
+    status: new FormControl('',Validators.required),
+    startTime  :new FormControl('',Validators.required),
+    endTime: new FormControl('',Validators.required) 
   })
+
 OnSubmit(){
+  console.log(this.AddTaskForm.value)
   if(this.AddTaskForm.valid){
     
   this.service.PostData(this.AddTaskForm.value).subscribe((res)=>{
@@ -42,11 +46,13 @@ get controls() {
 
   clearForm(){
     this.AddTaskForm.reset({
-      'item':'',
-      'type':'',
+      'title':'',
+      'category':'',
       'description':'',
       'image':'',
-      'status':''
+      'status':'',
+      'startTime':'',
+      'endTime':''
     })
   }
 

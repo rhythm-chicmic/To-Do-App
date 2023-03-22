@@ -54,7 +54,9 @@ export class SignUpComponent {
     console.log(this.SignupForm.value)
     if(this.SignupForm.valid){
     
-    this.service.PostSignUp(this.SignupForm.value).subscribe();
+    this.service.PostSignUp(this.SignupForm.value).subscribe((res:any)=>{
+      localStorage.setItem('token',res.token)
+    });
     this.route.navigate(['/home']);
   }
   else {

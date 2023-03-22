@@ -16,4 +16,7 @@ export class AuthserviceService {
     
     return this.http.post(`${api+links.auth.login}`,data)
   }
+  GetUserData(){
+    return this.http.get(`${api+links.auth.get}`);
+  }
 }

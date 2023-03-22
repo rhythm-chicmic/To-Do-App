@@ -18,38 +18,45 @@ export class HomeComponent {
   TaskId:any;
   constructor(private service:CRUDserviceService ,private modalservice:NgbModal,private fb:FormBuilder){
       this.service.GetData().subscribe((res)=>{
+        console.log(res)
         this.userList=res;
       })
    
 }
 ngOnInit() {
   this.AddTaskForm = this.fb.group({
-   item: [''],
-   type: [''],
+   title: [''],
+   category: [''],
    description: [''],
    image: [''],
-   status:['']
+   status:[''],
+   startTime:[''],
+   endTime:['']
   });
 }
   openModal(targetModal:any, target:any) {
-    this.TaskId=target.id;
+    this.TaskId=target._id;
     this.modalservice.open(targetModal, {
      centered: true,
      backdrop: 'static'
     });
    
     this.AddTaskForm.patchValue({
-     item: target.item,
-     type: target.type,
+     title: target.title,
+     category: target.category,
      description: target.description,
      image: target.image,
-     status: target.status
+     status: target.status,
+     endTime:target.endTime,
+     startTime: target.startTime
     });
    
  }
  OnSubmit(){
   this.modalservice.dismissAll();
    const EditData =this.AddTaskForm.getRawValue();
+   EditData['postId']=this.TaskId
+   console.log(EditData)
   this.service.PutData(this.TaskId,EditData).subscribe((res)=>{
     console.log(res)
   })
@@ -69,14 +76,15 @@ ngOnInit() {
     }
  }
  deleteModal(targetModal:any,target:any){
-  this.TaskId = target.id
+  this.TaskId = target._id
   this.modalservice.open(targetModal, {
     centered: true,
     backdrop: 'static',
    });
  }
  ViewTaskDetails(target:any){
-  set_id(target.id);
+  console.log(target._id)
+  set_id(target._id);
   this.modalservice.open(ShowTaskDetailsComponent, {
     centered: true,
     backdrop: 'static',

@@ -20,8 +20,8 @@
                 </div>
             </td>
             <td>
-                <p class="fw-normal mb-1">{{task.item}}</p>
-                <p class="text-muted mb-0">{{task.type}}</p>
+                <p class="fw-normal mb-1">{{task.title}}</p>
+                <p class="text-muted mb-0">{{task.category}}</p>
             </td>
             <td>
                 {{task.description}}
@@ -59,12 +59,12 @@
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label for="validationServer01">Task</label>
-        <input type="text" class="form-control " formControlName="item" placeholder="Enter Task Name"  required>
+        <input type="text" class="form-control " formControlName="title" placeholder="Enter Task Name"  required>
         
       </div>
       <div class="col-md-4 mb-3">
         <label >Work Type:-  </label>
-        <select name="" id="" formControlName="type" >
+        <select name="" id="" formControlName="category">
             <option disabled > Select the Work type</option>
             <option selected [value]="type" *ngFor="let type of task_type">{{type}}</option>
         </select>
