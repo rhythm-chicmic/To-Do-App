@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AuthserviceService } from '../authservice.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -8,7 +9,7 @@ import { AuthserviceService } from '../authservice.service';
 })
 export class SignUpComponent {
   SignupForm:FormGroup;
-  constructor(private service: AuthserviceService,private FormBuilder :FormBuilder) { 
+  constructor(private service: AuthserviceService,private FormBuilder :FormBuilder, private route:Router) { 
     this.SignupForm = FormBuilder.group({
       name: new FormControl('', [Validators.required,Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]),
@@ -51,9 +52,8 @@ export class SignUpComponent {
     console.log(this.SignupForm.value)
     if(this.SignupForm.valid){
     
-    this.service.PostSignUp(this.SignupForm.value).subscribe((res) => {
-      console.log(res)
-    });
+    this.service.PostSignUp(this.SignupForm.value).subscribe();
+    this.route.navigate(['/home']);
   }
   else {
     this.submitted=true;
