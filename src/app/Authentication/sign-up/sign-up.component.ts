@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AuthserviceService } from '../authservice.service';
 @Component({
   selector: 'app-sign-up',
@@ -7,17 +7,41 @@ import { AuthserviceService } from '../authservice.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  submitted:boolean =false;
-  SignupForm = new FormGroup({
-    name: new FormControl('', [Validators.required,Validators.minLength(3)]),
+  SignupForm:FormGroup;
+  constructor(private service: AuthserviceService,private FormBuilder :FormBuilder) { 
+    this.SignupForm = FormBuilder.group({
+      name: new FormControl('', [Validators.required,Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')]),
     phoneNumber: new FormControl('', [Validators.required, Validators.maxLength(10),
     Validators.pattern('^[0-9]+$')]),
-    password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required)
-  })
-  constructor(private service: AuthserviceService) { }
+    password: new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(50),Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])([a-zA-Z0-9@$!%*?&]{8,})$')]),
+    confirmPassword: new FormControl('', [Validators.required])
+    },
+    {
+      validators: this.MustMatch('password','confirmPassword')
+    }
+    )
+  }
 
+  submitted:boolean =false;
+  MustMatch(controlName:string, matchingControlName:string){
+    return (formGroup:FormGroup)=>{
+      const control = formGroup.controls[controlName];
+      const matchcontrol = formGroup.controls[matchingControlName];
+      if(matchcontrol.errors && !matchcontrol.errors?.['MustMatch']){
+      return
+    }
+    if(control.value != matchcontrol.value){
+      matchcontrol.setErrors({MustMatch:true});
+    }
+    else{
+      matchcontrol.setErrors(null);
+    }
+
+  }
+
+
+  }
   get controls(){
     return this.SignupForm.controls;
   }

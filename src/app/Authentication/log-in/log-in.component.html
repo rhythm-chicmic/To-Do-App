@@ -11,19 +11,28 @@
             <div class="form-outline mb-4">
               <input type="email" id="form3Example3" class="form-control form-control-lg"
                 placeholder="Enter a valid email address" formControlName="email" />
-              <label class="form-label" for="form3Example3">Email address</label>
+              <label class="form-label">Email address</label>
+              <span class="validations" *ngIf="controls.email.errors?.['pattern'] && controls.email.touched">
+                  *Enter Valid Email Address
+              </span>
             </div>
   
             <!-- Password input -->
             <div class="form-outline mb-3">
               <input type="password" id="form3Example4" class="form-control form-control-lg"
                 placeholder="Enter password"  formControlName="password"/>
-              <label class="form-label" for="form3Example4">Password</label>
+              <label class="form-label">Password</label>
+              <span class="validations" *ngIf="controls.password.errors?.['pattern'] && controls.password.touched">
+                *Enter Valid Password
+            </span>
             </div>
   
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="submit" class="btn btn-primary btn-lg"
+              <button type="submit" class="btn btn-primary btn-lg" [disabled]="LoginForm.invalid"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                <span class="validations" *ngIf="submitted===true">
+                  * Enter Valid information
+                </span>
             </div>
   
           </form>

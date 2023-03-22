@@ -5,7 +5,7 @@
     <div class="col-md-4 mb-3">
       <label for="validationServer01">Name</label>
       <input type="text" class="form-control" formControlName="name" placeholder="Enter Name">
-      <span class="validations" *ngIf="controls.name.invalid && controls.name.touched">
+      <span class="validations" *ngIf="controls['name'].invalid && controls['name'].touched">
           Fill up The Fields
       </span>
       <span class="validations" *ngIf="controls['name'].errors?.['minlength']">
@@ -17,7 +17,7 @@
     <div class="col-md-6 mb-3">
       <label for="validationServer03">Email</label>
       <input type="email" class="form-control" formControlName="email" placeholder="email" >
-      <span class="validations" *ngIf="!controls.email.valid && controls.email.touched">
+      <span class="validations" *ngIf="!controls['email'].valid && controls['email'].touched">
          Field is Required
       </span>
       <span class="validations" *ngIf="controls['email'].errors?.['pattern'] ">
@@ -28,33 +28,40 @@
     <div class="col-md-6 mb-3">
       <label for="validationServer03">Phone Number</label>
       <input type="text" class="form-control" formControlName="phoneNumber" placeholder="phone" >
-      <span class="validations" *ngIf="controls.phoneNumber.invalid && controls.phoneNumber.touched">
+      <span class="validations" *ngIf="controls['phoneNumber'].invalid && controls['phoneNumber'].touched">
         Fields are required : 
       </span>
       <span class="validations" *ngIf="controls['phoneNumber'].errors?.['pattern']">
         :   Characters must be numeric : 
       </span>
       <span class="validations" *ngIf="controls['phoneNumber'].errors?.['maxlength']">
-        : length too long
+        : length too long must be 10 digits
       </span>
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationServer04">Password</label>
       <input type="password" class="form-control" formControlName="password" placeholder="password" >
-      
+      <span class="validations" *ngIf="controls['password'].invalid && controls['password'].touched">
+        Enter a Password
+      </span>
+      <span class="validations" *ngIf="controls['password'].errors?.['pattern'] && controls['password'].touched">
+        Password must contain atleast UpperCase,1 LowerCase,1 Special Character and 1 Numeric Character
+      </span>
+      <span class="validations" *ngIf="controls['password'].errors?.['minlength']  && controls['password'].touched">
+        Password must be minimum 8 characters long
+      </span>
+      <span class="validations" *ngIf="controls['password'].errors?.['maxlength'] && controls['password'].touched">
+        Password length must be less than 50 characters
+      </span>
+    
+     
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationServer05">Re Enter Password</label>
       <input type="password" class="form-control" formControlName="confirmPassword" placeholder="confirmPassword" required>
-      
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" required>
-      <label class="form-check-label" for="invalidCheck3">
-        Agree to terms and conditions
-      </label>
+      <span class="validations" *ngIf="controls['confirmPassword'].errors?.['MustMatch'] && controls['confirmPassword'].touched">
+        Password doesn't Match
+      </span>
     </div>
   </div>
   <button class="btn btn-primary" [disabled]="SignupForm.invalid" type="submit">Submit form</button>

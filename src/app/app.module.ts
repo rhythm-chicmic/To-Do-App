@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './Authentication/sign-up/sign-up.component';
 import { LogInComponent } from './Authentication/log-in/log-in.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './Navigatation/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -13,6 +13,7 @@ import { AddListComponent } from './add-list/add-list.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShowTaskDetailsComponent } from './Modals/show-task-details/show-task-details.component';
+import { HttpconfigInterceptor } from './Interceptor/httpconfig.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ShowTaskDetailsComponent } from './Modals/show-task-details/show-task-d
     HomeComponent,
     AddListComponent,
     PagenotfoundComponent,
-    ShowTaskDetailsComponent,
+    ShowTaskDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,9 @@ import { ShowTaskDetailsComponent } from './Modals/show-task-details/show-task-d
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS ,useClass:HttpconfigInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
