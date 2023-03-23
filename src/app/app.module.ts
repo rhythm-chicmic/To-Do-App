@@ -14,6 +14,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShowTaskDetailsComponent } from './Modals/show-task-details/show-task-details.component';
 import { HttpconfigInterceptor } from './Interceptor/httpconfig.interceptor';
+import { UserProfileComponent } from './Authentication/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpconfigInterceptor } from './Interceptor/httpconfig.interceptor';
     AddListComponent,
     PagenotfoundComponent,
     ShowTaskDetailsComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

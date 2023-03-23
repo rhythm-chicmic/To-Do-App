@@ -16,6 +16,8 @@ export class HttpconfigInterceptor implements HttpInterceptor {
     const localToken = localStorage.getItem('token');
     
     request=request.clone({headers:request.headers.set('token',localToken || '')});
+    console.log(localToken);
+    
     return next.handle(request);
   }
 }

@@ -29,7 +29,9 @@ constructor(private service :AuthserviceService, private route:Router){}
       localStorage.setItem('token',res.token)
     });
     this.clearForm();
+
     this.route.navigate(['/home']);
+
 
   }
     else {

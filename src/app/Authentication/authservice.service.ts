@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { api,links } from 'Environment/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,4 +19,6 @@ export class AuthserviceService {
   GetUserData(){
     return this.http.get(`${api+links.auth.get}`);
   }
+  
+ 
 }

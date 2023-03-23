@@ -4,26 +4,36 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {  task_type,status, set_id , delete_options,id } from '../utils/shared';
 import { FormGroup,FormBuilder } from '@angular/forms';
 import { ShowTaskDetailsComponent } from '../Modals/show-task-details/show-task-details.component';
+import { image_url } from 'Environment/environment';
+import { AuthserviceService } from '../Authentication/authservice.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  image_url = image_url
   status=status
   task_type= task_type
   userList:any=[]
   Options = delete_options
   AddTaskForm!: FormGroup;
   TaskId:any;
-  constructor(private service:CRUDserviceService ,private modalservice:NgbModal,private fb:FormBuilder){
-      this.service.GetData().subscribe((res)=>{
-        console.log(res)
-        this.userList=res;
-      })
+  constructor(private service:CRUDserviceService,private modalservice:NgbModal,private fb:FormBuilder){
+   
    
 }
 ngOnInit() {
+
+  setTimeout(() => {
+    this.service.GetData().subscribe((res)=>{
+      console.log(res)
+      this.userList=res;
+     
+    })
+  }, 700);
+
+
   this.AddTaskForm = this.fb.group({
    title: [''],
    category: [''],
@@ -34,6 +44,7 @@ ngOnInit() {
    endTime:['']
   });
 }
+
   openModal(targetModal:any, target:any) {
     this.TaskId=target._id;
     this.modalservice.open(targetModal, {

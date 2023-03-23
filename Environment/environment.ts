@@ -13,7 +13,9 @@ export const  links = {
         post:'/data/addData',
         get:'/data/showDataAll',
         put: '/data/updateData',
-        delete:'/delete/deleteData/'
+        delete:'/data/deleteData/',
+        image:"/data/"
 
     }
 }
+export const image_url= "http://192.180.0.203:8000/images/landingPageBackground.jpg"

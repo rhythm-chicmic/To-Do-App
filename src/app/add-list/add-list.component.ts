@@ -10,6 +10,7 @@ import { task_type, status } from '../utils/shared';
 })
 export class AddListComponent {
   task_type:any= task_type
+  image:any;
   submitted:boolean= false;
   status= status
   constructor(private service:CRUDserviceService){}
@@ -18,17 +19,30 @@ export class AddListComponent {
     Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$')]),
     category: new FormControl('', Validators.required),
     description: new FormControl('',[Validators.required, Validators.minLength(10),Validators.maxLength(70)]),
-    image: new FormControl('', Validators.required),
+    image: new FormControl(''),
     status: new FormControl('',Validators.required),
     startTime  :new FormControl('',Validators.required),
     endTime: new FormControl('',Validators.required) 
   })
 
 OnSubmit(){
-  console.log(this.AddTaskForm.value)
+  const data = new FormData();
+  if(this.image!==undefined){
+  data.append('image',this.image);
+
+  }
+  data.append('title',this.AddTaskForm?.value?.title || '' )
+  data.append('category',this.AddTaskForm?.value?.category || '' )
+  data.append('description',this.AddTaskForm?.value?.description || '' )
+  data.append('status',this.AddTaskForm?.value?.status || '' )
+  data.append('startTime',this.AddTaskForm?.value?.startTime || '' )
+  data.append('endTime',this.AddTaskForm?.value?.endTime || '' )
+
   if(this.AddTaskForm.valid){
-    
-  this.service.PostData(this.AddTaskForm.value).subscribe((res)=>{
+  
+
+    console.log(data);  
+  this.service.PostData(data).subscribe((res)=>{
     console.log(res)})
 
   this.clearForm();
@@ -54,6 +68,11 @@ get controls() {
       'startTime':'',
       'endTime':''
     })
+  }
+  readImage(fileEvent:any){
+    console.log(fileEvent)
+    this.image = fileEvent.srcElement.files[0];
+    console.log(this.image);
   }
 
 
